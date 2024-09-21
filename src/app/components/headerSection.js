@@ -9,10 +9,8 @@ const HeaderSection = () => {
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        // height: "100vh",
+        height: "100vh",
         margin: "0",
         width: "100%",
         borderRadius: "0",
