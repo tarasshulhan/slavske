@@ -18,10 +18,9 @@ const rooms = [
       "/boykivsky4.jpg",
     ],
     priceGrid: [
-      { season: "Літо", price: 4000 },
-      { season: "Зима", price: 5500 },
-      { season: "Міжсезоння", price: 3500 },
-      { season: "Високий сезон", price: 6000 },
+      { season: "Літо", price: 5000 },
+      { season: "Зима", price: 6000 },
+      { season: "Високий сезон", price: 7000 },
     ],
   },
   {
@@ -29,7 +28,7 @@ const rooms = [
     name: "Котедж Гуцульський",
     description:
       "Котедж виконаний в гуцульському стилі майстрами Гуцульщини. Двоповерховий будинок, який складається з двох окремих входів з терасами, маючи свої вітальні, забезпечить Вам комфорт і гарний настрій. Котедж розділений на дві половини, кожна має окремий вхід з терасами, вітальню в якій є: мяка частина, телевізор, супутникове телебачення, міні-кухня на другому поверсі дві сімейні кімнати. В кожній кімнаті є санвузол, душова, та свій балкон.",
-    priceDesc: "Ціни за добу на 4 особи",
+    priceDesc: "Ціни за добу за пів котеджу (2 спальні + вітальня)",
     images: [
       "/hutsulsky1.jpg",
       "/hutsulsky5.jpg",
@@ -39,9 +38,8 @@ const rooms = [
       "/hutsulsky3.jpg",
     ],
     priceGrid: [
-      { season: "Літо", price: 1250 },
-      { season: "Зима", price: 1750 },
-      { season: "Міжсезоння", price: 1000 },
+      { season: "Літо", price: 3000 },
+      { season: "Зима", price: 4000 },
       { season: "Високий сезон", price: 2000 },
     ],
   },
@@ -60,9 +58,8 @@ const rooms = [
       "/kolyba6.jpg",
     ],
     priceGrid: [
-      { season: "Літо", price: 2200 },
+      { season: "Літо", price: 2500 },
       { season: "Зима", price: 3000 },
-      { season: "Міжсезоння", price: 2000 },
       { season: "Високий сезон", price: 3500 },
     ],
   },
@@ -81,10 +78,9 @@ const rooms = [
       "/chan6.jpg",
     ],
     priceGrid: [
-      { season: "Літо", price: 1800 },
-      { season: "Зима", price: 2200 },
-      { season: "Міжсезоння", price: 1400 },
-      { season: "Високий сезон", price: 2500 },
+      { season: "Літо", price: 2000 },
+      { season: "Зима", price: 2400 },
+      { season: "Високий сезон", price: 2600 },
     ],
   },
   {
@@ -102,10 +98,9 @@ const rooms = [
       "/khatynka6.jpg",
     ],
     priceGrid: [
-      { season: "Літо", price: 1500 },
-      { season: "Зима", price: 1750 },
-      { season: "Міжсезоння", price: 1200 },
-      { season: "Високий сезон", price: 2000 },
+      { season: "Літо", price: 1600 },
+      { season: "Зима", price: 2200 },
+      { season: "Високий сезон", price: 2600 },
     ],
   },
   {
@@ -156,7 +151,7 @@ export default function RoomPage({ params }) {
 
             <h2 className="text-3xl font-semibold">Ціни</h2>
             <p className="text-lg mb-4">{room.priceDesc}</p>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 gap-2">
               {room.priceGrid.map((price, index) => (
                 <div key={index} className="p-2 rounded">
                   <span className="text-lg">{price.season} :</span>{" "}
