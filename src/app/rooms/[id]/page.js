@@ -40,7 +40,7 @@ const rooms = [
     priceGrid: [
       { season: "Літо", price: 3000 },
       { season: "Зима", price: 4000 },
-      { season: "Високий сезон", price: 2000 },
+      { season: "Високий сезон", price: 5000 },
     ],
   },
   {
@@ -120,7 +120,6 @@ const rooms = [
     priceGrid: [
       { season: "Літо", price: 1200 },
       { season: "Зима", price: 1600 },
-      { season: "Міжсезоння", price: 1000 },
       { season: "Високий сезон", price: 1800 },
     ],
   },
