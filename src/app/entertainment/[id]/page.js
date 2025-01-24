@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import BookButton from "../../components/bookButton";
+import { useState } from "react";
 
 const items = [
   {
@@ -137,6 +139,7 @@ const items = [
 
 export default function Entertainment({ params }) {
   const item = items.find((r) => r.id === params.id);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   if (!item) {
     return (
@@ -158,8 +161,12 @@ export default function Entertainment({ params }) {
             <h2 className="text-3xl font-semibold mb-4 mt-4">Опис</h2>
             <p className="text-lg mb-8 ml-4 mr-4">{item.description}</p>
 
-            <h2 className="text-3xl font-semibold">Ціни</h2>
-            {item.priceDesc && <p className="text-lg mb-4">{item.priceDesc}</p>}
+            {item.priceDesc && (
+              <>
+                <h2 className="text-3xl font-semibold">Ціни</h2>
+                <p className="text-lg mb-4">{item.priceDesc}</p>
+              </>
+            )}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {item.images.map((img, index) => (
@@ -169,11 +176,36 @@ export default function Entertainment({ params }) {
                 alt={`${item.name} - image ${index + 2}`}
                 width={600}
                 height={400}
-                className="rounded-lg"
+                className="rounded-lg cursor-pointer transition-transform hover:scale-105"
+                onClick={() => setSelectedImage(img)}
               />
             ))}
           </div>
         </div>
+
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-4xl max-h-[90vh] w-full">
+              <Image
+                src={selectedImage}
+                alt="Zoomed image"
+                width={1200}
+                height={800}
+                className="object-contain w-full h-full"
+              />
+              <button
+                className="absolute top-4 right-4 text-white text-xl bg-black bg-opacity-50 w-8 h-8 rounded-full"
+                onClick={() => setSelectedImage(null)}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        )}
+
         <BookButton />
         <Link
           href="/"

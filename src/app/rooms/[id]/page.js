@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import BookButton from "../../components/bookButton";
+import { useState } from "react";
 
 const rooms = [
   {
@@ -127,6 +129,7 @@ const rooms = [
 
 export default function RoomPage({ params }) {
   const room = rooms.find((r) => r.id === params.id);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   if (!room) {
     return (
@@ -167,11 +170,36 @@ export default function RoomPage({ params }) {
                 alt={`${room.name} - image ${index + 2}`}
                 width={600}
                 height={400}
-                className="rounded-lg"
+                className="rounded-lg cursor-pointer transition-transform hover:scale-105"
+                onClick={() => setSelectedImage(img)}
               />
             ))}
           </div>
         </div>
+
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-4xl max-h-[90vh] w-full">
+              <Image
+                src={selectedImage}
+                alt="Zoomed image"
+                width={1200}
+                height={800}
+                className="object-contain w-full h-full"
+              />
+              <button
+                className="absolute top-4 right-4 text-white text-xl bg-black bg-opacity-50 w-8 h-8 rounded-full"
+                onClick={() => setSelectedImage(null)}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        )}
+
         <BookButton />
         <Link
           href="/"
