@@ -34,7 +34,8 @@ const Entertainment = () => {
       name: "Чани на Травах",
       description:
         "Купання у чанах на травах було відоме в Європі з давніх давен, особливо в гірських регіонах Альп, Карпат та Піреней. Сидять люди у чані так, щоб серце було над водою. Під чаном розпалюють вогнище. Температура у чані підтримується на рівні до 40 °C (для витривалих клієнтів можна й до 45 °C). Одночасно в чані можуть перебувати до 6 осіб.",
-      price: 1500,
+      price: 2000,
+      priceUnit: "грн / 2 год",
       image: "/chan00.jpg",
     },
     {
@@ -42,7 +43,8 @@ const Entertainment = () => {
       name: "Сауна",
       description:
         "Оздоровча спа процедура з ароматом гірських трав. Чудове місце для душевного та тілесного відпочинку.",
-      price: 1000,
+      price: 1500,
+      priceUnit: "грн / 2 год",
       image: "/sauna0.jpg",
     },
     {
@@ -111,7 +113,11 @@ const Entertainment = () => {
               className="rounded-lg mb-4"
             />
             <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
-            {item.price && <p className="text-lg">Від {item.price} грн/год</p>}
+            {item.price && (
+              <p className="text-lg">
+                Від {item.price} {item.priceUnit ?? "грн/год"}
+              </p>
+            )}
             <Link
               href={`/entertainment/${item.id}`}
               className="button mt-4 flex items-center"

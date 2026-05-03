@@ -1,5 +1,5 @@
 import Image from "next/image";
-const image = "/andrew-yurkiv-XNZjueEeLO8-unsplash.jpg";
+const image = "/hero.jpg";
 
 const HeaderSection = () => {
   return (
