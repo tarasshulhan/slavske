@@ -49,7 +49,7 @@ const RoomsSection = () => {
       description:
         "Адмінбудинок містить два двомісні номери в мансардному поверсі з окремим входом.",
       price: 1000,
-      image: "/admin0.jpg",
+      image: "/admin1.jpg",
     },
   ];
 
